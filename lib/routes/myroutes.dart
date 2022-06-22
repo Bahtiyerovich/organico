@@ -29,8 +29,9 @@ import 'package:organico/view/screens/profile/pages/notification/notification_pa
 import 'package:organico/view/screens/profile/pages/notification_settings/notification_settings_page.dart';
 import 'package:organico/view/screens/profile/pages/payment_method/payment_method_page.dart';
 import 'package:organico/view/screens/profile/pages/search_result_empty/search_result_empty_page.dart';
+import 'package:organico/view/screens/profile/view/profile_view.dart';
 import 'package:organico/view/screens/screens_view.dart';
-import 'package:organico/view/splash/splash_view.dart';
+import 'package:organico/view/splash/view/splash_view.dart';
 
 class MyRoutes {
   static final MyRoutes _instanse = MyRoutes.init();
@@ -42,7 +43,7 @@ class MyRoutes {
     switch (s.name) {
       //Splash Page
       case '/splash':
-        return MaterialPageRoute(builder: (_) => const SplashView());
+        return MaterialPageRoute(builder: (_) => SplashView());
 
       //Auth Page
       case '/sign_in':
@@ -94,6 +95,9 @@ class MyRoutes {
         return MaterialPageRoute(builder: (_) => const CancelationReasonPage());
 
       //Profile Page
+      case '/profile':
+        return MaterialPageRoute(builder: (_) => ProfileView());
+
       case '/notification':
         return MaterialPageRoute(builder: (_) => const NotificationPage());
       case '/notification_settings':
@@ -122,7 +126,7 @@ class MyRoutes {
         return MaterialPageRoute(builder: (_) => const ContactSellerPage());
       // case '/my_orders':
       //   return MaterialPageRoute(builder: (_) => const NoView());  //! NoView
-      case '/search_result_empty ':
+      case '/search_result_empty':
         return MaterialPageRoute(builder: (_) => const SearchResultEmptyPage());
     }
   }

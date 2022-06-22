@@ -26,7 +26,7 @@ class OrgText extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       style: TextStyle(
         color: color,
-        fontFamily: 'HKGrotesk',
+        fontFamily: 'Nunito',
         fontSize: size == 0 ? FontsConst.kSmallFont14 : size,
         fontWeight: fontWeight,
       ),
