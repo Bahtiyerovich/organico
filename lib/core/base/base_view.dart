@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 import 'package:flutter/material.dart';
+import 'package:organico/core/constants/colors_const.dart';
 
 class BaseView<T> extends StatefulWidget {
   final T? viewModal;
@@ -22,7 +23,7 @@ class BaseView<T> extends StatefulWidget {
 class _BaseViewState extends State<BaseView> with WidgetsBindingObserver {
   StreamSubscription? subscription;
   dynamic internetStatus;
-  
+
   @override
   void initState() {
     super.initState();

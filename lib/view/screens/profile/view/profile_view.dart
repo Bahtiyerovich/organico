@@ -5,42 +5,17 @@ import 'package:organico/core/components/orgtext_comp.dart';
 import 'package:organico/core/constants/colors_const.dart';
 import 'package:organico/core/constants/fonts_const.dart';
 import 'package:organico/core/extensions/context_extensions.dart';
+import 'package:organico/core/widgets/listTile_widget.dart';
+import 'package:organico/view/screens/cart/pages/my_orders/my_orders_page.dart';
+import 'package:organico/view/screens/home/pages/my_wishlist/my_wishlist_page.dart';
+import 'package:organico/view/screens/profile/pages/account_password/account_password_page.dart';
+import 'package:organico/view/screens/profile/pages/customer_service/customer_service_page.dart';
+import 'package:organico/view/screens/profile/pages/edit_profile/edit_profile_page.dart';
+import 'package:organico/view/screens/profile/pages/my_address/my_address_page.dart';
+import 'package:organico/view/screens/profile/pages/payment_method/payment_method_page.dart';
 
 class ProfileView extends StatelessWidget {
   ProfileView({Key? key}) : super(key: key);
-  List<String> notif = [
-    'Edit Profile',
-    'My Orders',
-    'My Wishlist',
-    'My Address',
-    'Payment Method',
-    'Customer Service',
-    'Change Password',
-    'Logout'
-  ];
-
-  List<String> notifIcons = [
-    'assets/icons/profile/profile_editProfile.svg',
-    'assets/icons/profile/profile_myOrder.svg',
-    'assets/icons/profile/profile_myWishlist.svg',
-    'assets/icons/profile/profile_myAddress.svg',
-    'assets/icons/profile/profile_payment.svg',
-    'assets/icons/profile/profile_customer.svg',
-    'assets/icons/profile/profile_changePassword.svg',
-    'assets/icons/profile/profile_logOut.svg',
-  ];
-
-  List natifNavigations = [
-    '/edit_profile',
-    '/my_orders',
-    '/',
-    '/my_address',
-    '/payment_method',
-    '/customer_service',
-    '/account_password',
-    '/',
-
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +50,11 @@ class ProfileView extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        top: context.h * 0.02,
-                        left: context.w * 0.3,
-                        right: context.w * 0.3),
+                      top: context.h * 0.02,
+                      left: context.w * 0.3,
+                      right: context.w * 0.3,
+                      bottom: context.h * 0.02,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +75,7 @@ class ProfileView extends StatelessWidget {
                         OrgText(
                           text: '(307) 555-0133',
                           color: MainColors.color92929D,
-                          size: FontsConst.kMediumFont16 + 2,
+                          size: FontsConst.kMediumFont16,
                           fontWeight: WeightsConst.kLargeWeight800,
                         )
                       ],
@@ -106,27 +83,102 @@ class ProfileView extends StatelessWidget {
                   ),
                   SizedBox(
                     height: context.h * 0.6,
-                    child: ListView.builder(
-                        itemCount: notif.length,
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                  context, natifNavigations[index]);
-                            },
-                            child: ListTile(
-                              leading: SvgPicture.asset(notifIcons[index]),
-                              title: OrgText(
-                                text: notif[index],
-                                size: FontsConst.kMediumFont16,
-                                fontWeight: WeightsConst.kMediumWeight600,
-                                color: MainColors.colorBlackk,
-                              ),
-                              trailing: const Icon(Icons.chevron_right),
-                            ),
-                          );
-                        }),
-                  )
+                    child: Column(
+                      children: [
+                        ListTileWidget(
+                            icon:
+                                'assets/icons/profile/profile_editProfile.svg',
+                            title: 'Edit Profile',
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => EditProfilePage(
+                                        avatar: 'assets/images/avatar.png',
+                                        title: 'Edit Profile'),
+                                  ));
+                            }),
+                        ListTileWidget(
+                            icon: 'assets/icons/profile/profile_myOrder.svg',
+                            title: 'My Orders',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MyOrdersPage()),
+                              );
+                            }),
+                        ListTileWidget(
+                            icon: 'assets/icons/profile/profile_myWishlist.svg',
+                            title: 'My Wishlist',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MyWishlistPage()),
+                              );
+                            }),
+                        ListTileWidget(
+                            icon: 'assets/icons/profile/profile_myAddress.svg',
+                            title: 'My Address',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MyAddressPage(title: 'My Address',)),
+                              );
+                            }),
+                        ListTileWidget(
+                            icon: 'assets/icons/profile/profile_payment.svg',
+                            title: 'Payment Method',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PaymentMethodPage(
+                                            title: 'Payment Method')),
+                              );
+                            }),
+                        ListTileWidget(
+                            icon: 'assets/icons/profile/profile_customer.svg',
+                            title: 'Customer Service',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CustomerServicePage()),
+                              );
+                            }),
+                        ListTileWidget(
+                            icon:
+                                'assets/icons/profile/profile_changePassword.svg',
+                            title: 'Change Password',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const AccountPasswordPage()),
+                              );
+                            }),
+                        ListTileWidget(
+                            icon: 'assets/icons/profile/profile_logOut.svg',
+                            title: 'Logout',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CustomerServicePage()), // LOGOUT page CHANGE
+                              );
+                            }),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

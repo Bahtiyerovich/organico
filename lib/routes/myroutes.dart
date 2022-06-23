@@ -24,6 +24,7 @@ import 'package:organico/view/screens/profile/pages/contact_seller/contact_selle
 import 'package:organico/view/screens/profile/pages/contact_seller_with_keyboard/contact_seller_with_keyboard_page.dart';
 import 'package:organico/view/screens/profile/pages/customer_service/customer_service_page.dart';
 import 'package:organico/view/screens/profile/pages/edit_profile/edit_profile_page.dart';
+import 'package:organico/view/screens/profile/pages/my_address/mapview.dart';
 import 'package:organico/view/screens/profile/pages/my_address/my_address_page.dart';
 import 'package:organico/view/screens/profile/pages/notification/notification_page.dart';
 import 'package:organico/view/screens/profile/pages/notification_settings/notification_settings_page.dart';
@@ -97,26 +98,24 @@ class MyRoutes {
       //Profile Page
       case '/profile':
         return MaterialPageRoute(builder: (_) => ProfileView());
-
       case '/notification':
         return MaterialPageRoute(builder: (_) => const NotificationPage());
       case '/notification_settings':
-        return MaterialPageRoute(
-            builder: (_) => const NotificationSettingsPage());
+        return MaterialPageRoute(builder: (_) => NotificationSettingsPage());
       case '/edit_profile':
-        return MaterialPageRoute(builder: (_) => const EditProfilePage());
+        return MaterialPageRoute(builder: (_) => EditProfilePage());
       case '/change_number':
         return MaterialPageRoute(builder: (_) => const CouponPage());
       case '/account_password':
         return MaterialPageRoute(builder: (_) => const AccountPasswordPage());
       case '/my_address':
         return MaterialPageRoute(builder: (_) => const MyAddressPage());
-      // case '/select_location':
-      //   return MaterialPageRoute(builder: (_) => const NoView()); //! NoView
+      case '/select_location':
+        return MaterialPageRoute(builder: (_) => const MapViewPage()); //! NoView
       case '/payment_method':
         return MaterialPageRoute(builder: (_) => const PaymentMethodPage());
       case '/add_payment_method':
-        return MaterialPageRoute(builder: (_) => const AddPaymentMethodPage());
+        return MaterialPageRoute(builder: (_) =>   AddPaymentMethodPage());
       case '/customer_service':
         return MaterialPageRoute(builder: (_) => const CustomerServicePage());
       case '/contact_seller_with_keyboard':

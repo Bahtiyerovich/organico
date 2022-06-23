@@ -8,6 +8,9 @@ class MainColors {
   static Color darkPink = const Color(0xffab0023);
   static Color pink = const Color(0xffd33865);
   static Color lightPink = const Color(0xfff27597);
+  static Color darkGrey = const Color(0xffEAEAEA);
+  static Color textBlack = const Color(0xff171725);
+
 
   static Color colorWhitee = const Color(0xffFFFFFF);
   static Color colorBlackk = const Color(0xff000000);
