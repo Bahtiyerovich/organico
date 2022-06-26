@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:organico/core/base/base_view.dart';
 import 'package:organico/core/constants/colors_const.dart';
@@ -34,7 +35,7 @@ class MyAddressPage extends StatelessWidget {
                         title: 'Home',
                         subTitle: '3517 W. Gray St. Utica, Pennsylvania 57867',
                         onPressed: () {
-                          Navigator.pushNamed(context, '/add_payment_method');
+                          Navigator.pushNamed(context, '/select_location');
                         }),
                   ),
                   Container(
@@ -50,14 +51,14 @@ class MyAddressPage extends StatelessWidget {
                         title: 'Work',
                         subTitle: '2715 Ash Dr. San Jose, South Dakota 83475',
                         onPressed: () {
-                          Navigator.pushNamed(context, '/add_payment_method');
+                          Navigator.pushNamed(context, '/select_location');
                         }),
                   ),
                   Spacer(),
                   RedButton(
                       text: 'Add address',
                       onpressed: () {
-                        Navigator.pushNamed(context, '/add_payment_method');
+                        Navigator.pushNamed(context, '/select_location');
                       }),
                 ],
               ),

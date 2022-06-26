@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:organico/core/base/base_view.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:organico/core/widgets/appbar_widget.dart';
 
-class MapViewPage extends StatelessWidget {
+class MapViewPage extends StatefulWidget {
   const MapViewPage({Key? key}) : super(key: key);
+
+  @override
+  State<MapViewPage> createState() => _MapViewPageState();
+}
+
+class _MapViewPageState extends State<MapViewPage> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(41.4317736, -79.9639187);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +25,15 @@ class MapViewPage extends StatelessWidget {
         viewModal: MapViewPage,
         onPageBuilder: (context, widget) {
           return Scaffold(
-            
+            appBar: OrgAppBar(title: 'selected location',),
+            body: GoogleMap(
+              mapType: MapType.normal,
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: 14.0,
+              ),
+            ),
           );
         });
   }

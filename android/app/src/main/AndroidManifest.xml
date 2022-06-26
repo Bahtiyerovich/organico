@@ -1,9 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bahtiyerovich.organico">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
    <application
         android:label="organico"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="AIzaSyD25H4xGl0q_tdAX3Gr7bJtIqqNOnB5H_I"
+               android:value="YOUR KEY HERE"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -8,7 +8,7 @@ import 'package:organico/core/extensions/context_extensions.dart';
 import 'package:organico/core/widgets/listTile_widget.dart';
 import 'package:organico/view/screens/cart/pages/my_orders/my_orders_page.dart';
 import 'package:organico/view/screens/home/pages/my_wishlist/my_wishlist_page.dart';
-import 'package:organico/view/screens/profile/pages/account_password/account_password_page.dart';
+import 'package:organico/view/screens/profile/pages/account_password/view/account_password_page.dart';
 import 'package:organico/view/screens/profile/pages/customer_service/customer_service_page.dart';
 import 'package:organico/view/screens/profile/pages/edit_profile/edit_profile_page.dart';
 import 'package:organico/view/screens/profile/pages/my_address/my_address_page.dart';
@@ -126,8 +126,9 @@ class ProfileView extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const MyAddressPage(title: 'My Address',)),
+                                    builder: (context) => const MyAddressPage(
+                                          title: 'My Address',
+                                        )),
                               );
                             }),
                         ListTileWidget(
@@ -161,8 +162,9 @@ class ProfileView extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AccountPasswordPage()),
+                                    builder: (context) => AccountPasswordPage(
+                                          title: 'Change Password',
+                                        )),
                               );
                             }),
                         ListTileWidget(

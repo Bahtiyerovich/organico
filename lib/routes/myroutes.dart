@@ -3,7 +3,7 @@ import 'package:organico/view/auth/number/number_view.dart';
 import 'package:organico/view/auth/password/forgot_password_view.dart';
 import 'package:organico/view/auth/password/reset_password_view.dart';
 import 'package:organico/view/auth/register/register_view.dart';
-import 'package:organico/view/auth/sign_in/sign_in_view.dart';
+import 'package:organico/view/auth/sign_in/view/sign_in_view.dart';
 import 'package:organico/view/screens/cart/pages/cancelation_reason/cancelation_reason_page.dart';
 import 'package:organico/view/screens/cart/pages/history/history_page.dart';
 import 'package:organico/view/screens/cart/pages/my_blog/my_blog_page.dart';
@@ -18,8 +18,9 @@ import 'package:organico/view/screens/home/pages/my_wishlist/my_wishlist_page.da
 import 'package:organico/view/screens/home/pages/search/search_page.dart';
 import 'package:organico/view/screens/home/pages/search_result/search_result_page.dart';
 import 'package:organico/view/screens/home/pages/vegetables/vegetables_page.dart';
-import 'package:organico/view/screens/profile/pages/account_password/account_password_page.dart';
+import 'package:organico/view/screens/profile/pages/account_password/view/account_password_page.dart';
 import 'package:organico/view/screens/profile/pages/add_payment_method/add_payment_method_page.dart';
+import 'package:organico/view/screens/profile/pages/change_number/change_number_page.dart';
 import 'package:organico/view/screens/profile/pages/contact_seller/contact_seller_page.dart';
 import 'package:organico/view/screens/profile/pages/contact_seller_with_keyboard/contact_seller_with_keyboard_page.dart';
 import 'package:organico/view/screens/profile/pages/customer_service/customer_service_page.dart';
@@ -27,7 +28,7 @@ import 'package:organico/view/screens/profile/pages/edit_profile/edit_profile_pa
 import 'package:organico/view/screens/profile/pages/my_address/mapview.dart';
 import 'package:organico/view/screens/profile/pages/my_address/my_address_page.dart';
 import 'package:organico/view/screens/profile/pages/notification/notification_page.dart';
-import 'package:organico/view/screens/profile/pages/notification_settings/notification_settings_page.dart';
+import 'package:organico/view/screens/profile/pages/notification_settings/view/notification_settings_page.dart';
 import 'package:organico/view/screens/profile/pages/payment_method/payment_method_page.dart';
 import 'package:organico/view/screens/profile/pages/search_result_empty/search_result_empty_page.dart';
 import 'package:organico/view/screens/profile/view/profile_view.dart';
@@ -105,9 +106,9 @@ class MyRoutes {
       case '/edit_profile':
         return MaterialPageRoute(builder: (_) => EditProfilePage());
       case '/change_number':
-        return MaterialPageRoute(builder: (_) => const CouponPage());
+        return MaterialPageRoute(builder: (_) =>  ChangeNumberPage());
       case '/account_password':
-        return MaterialPageRoute(builder: (_) => const AccountPasswordPage());
+        return MaterialPageRoute(builder: (_) =>  AccountPasswordPage());
       case '/my_address':
         return MaterialPageRoute(builder: (_) => const MyAddressPage());
       case '/select_location':
