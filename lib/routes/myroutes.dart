@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:organico/models/api_model.dart';
+import 'package:organico/view/auth/forgot_password/forgot_password_view.dart';
+import 'package:organico/view/auth/forgot_password/reset_password_view.dart';
 import 'package:organico/view/auth/number/number_view.dart';
-import 'package:organico/view/auth/password/forgot_password_view.dart';
-import 'package:organico/view/auth/password/reset_password_view.dart';
-import 'package:organico/view/auth/register/register_view.dart';
+import 'package:organico/view/auth/register/view/register_view.dart';
 import 'package:organico/view/auth/sign_in/view/sign_in_view.dart';
 import 'package:organico/view/screens/cart/pages/cancelation_reason/cancelation_reason_page.dart';
 import 'package:organico/view/screens/cart/pages/history/history_page.dart';
-import 'package:organico/view/screens/cart/pages/my_blog/my_blog_page.dart';
+import 'package:organico/view/screens/cart/pages/history/my_blog/my_blog_page.dart';
 import 'package:organico/view/screens/cart/pages/my_orders/my_orders_page.dart';
 import 'package:organico/view/screens/cart/pages/ongoing/ongoing_page.dart';
 import 'package:organico/view/screens/cart/pages/order_status/order_status_page.dart';
@@ -35,10 +36,10 @@ import 'package:organico/view/screens/profile/view/profile_view.dart';
 import 'package:organico/view/screens/screens_view.dart';
 import 'package:organico/view/splash/view/splash_view.dart';
 
-class MyRoutes {
-  static final MyRoutes _instanse = MyRoutes.init();
-  static MyRoutes get instanse => MyRoutes._instanse;
-  MyRoutes.init();
+class OrgRoutes {
+  static final OrgRoutes _instanse = OrgRoutes.init();
+  static OrgRoutes get instanse => OrgRoutes._instanse;
+  OrgRoutes.init();
 
   Route? onGenerate(RouteSettings s) {
     var args = s.arguments;
@@ -47,27 +48,35 @@ class MyRoutes {
       case '/splash':
         return MaterialPageRoute(builder: (_) => SplashView());
 
-      //Auth Page
-      case '/sign_in':
-        return MaterialPageRoute(builder: (_) => const SignInView());
-      case '/register':
-        return MaterialPageRoute(builder: (_) => const RegisterView());
-      case '/forgot_password':
-        return MaterialPageRoute(builder: (_) => const ForgotPasswordView());
-      case '/reset_password':
-        return MaterialPageRoute(builder: (_) => const ResetPasswordView());
-      case '/number':
-        return MaterialPageRoute(builder: (_) => const NumberView());
+      //? Auth Page
 
-      //Screens (TabBar) Page
+      case '/sign_in':
+        return MaterialPageRoute(builder: (_) => SignInView());
+      case '/register':
+        return MaterialPageRoute(builder: (_) => RegisterView());
+      case '/forgot_password':
+        return MaterialPageRoute(builder: (_) => ForgotPasswordView());
+      case '/reset_password':
+        return MaterialPageRoute(builder: (_) => ResetPasswordView());
+      case '/number':
+        return MaterialPageRoute(builder: (_) => NumberView());
+
+      //? Screens (TabBar) Page
+
       case '/screens':
         return MaterialPageRoute(builder: (_) => const ScreensView());
 
-      //Home Page
+      //? Home Page
+
       case '/detail':
-        return MaterialPageRoute(builder: (_) => const DetailPage());
+        return MaterialPageRoute(
+            builder: (_) => DetailPage(
+                  getData: args as OrganicoApiModel,
+                  index: args as int,
+                ));
       case '/my_wishlist':
-        return MaterialPageRoute(builder: (_) => const MyWishlistPage());
+        return MaterialPageRoute(
+            builder: (_) => MyWishlistPage(getData: args as OrganicoApiModel));
       case '/vegetables':
         return MaterialPageRoute(builder: (_) => const VegetablesPage());
       case '/coupon':
@@ -77,11 +86,12 @@ class MyRoutes {
       case '/search_result':
         return MaterialPageRoute(builder: (_) => const SearchResultPage());
 
-      //Cart Page
+      //? Cart Page
+
       case '/my_bag':
         return MaterialPageRoute(builder: (_) => const MyBlogPage());
       case '/my_orders':
-        return MaterialPageRoute(builder: (_) => const MyOrdersPage());
+        return MaterialPageRoute(builder: (_) => MyOrdersPage());
       case '/ongoing':
         return MaterialPageRoute(builder: (_) => const OnGoingPage());
       case '/history':
@@ -96,7 +106,8 @@ class MyRoutes {
       case '/cancelation_reason':
         return MaterialPageRoute(builder: (_) => const CancelationReasonPage());
 
-      //Profile Page
+      //? Profile Page
+
       case '/profile':
         return MaterialPageRoute(builder: (_) => ProfileView());
       case '/notification':
@@ -106,17 +117,18 @@ class MyRoutes {
       case '/edit_profile':
         return MaterialPageRoute(builder: (_) => EditProfilePage());
       case '/change_number':
-        return MaterialPageRoute(builder: (_) =>  ChangeNumberPage());
+        return MaterialPageRoute(builder: (_) => ChangeNumberPage());
       case '/account_password':
-        return MaterialPageRoute(builder: (_) =>  AccountPasswordPage());
+        return MaterialPageRoute(builder: (_) => AccountPasswordPage());
       case '/my_address':
         return MaterialPageRoute(builder: (_) => const MyAddressPage());
       case '/select_location':
-        return MaterialPageRoute(builder: (_) => const MapViewPage()); //! NoView
+        return MaterialPageRoute(
+            builder: (_) => const MapViewPage()); //! NoView
       case '/payment_method':
         return MaterialPageRoute(builder: (_) => const PaymentMethodPage());
       case '/add_payment_method':
-        return MaterialPageRoute(builder: (_) =>   AddPaymentMethodPage());
+        return MaterialPageRoute(builder: (_) => AddPaymentMethodPage());
       case '/customer_service':
         return MaterialPageRoute(builder: (_) => const CustomerServicePage());
       case '/contact_seller_with_keyboard':

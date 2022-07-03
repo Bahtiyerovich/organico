@@ -1,18 +1,12 @@
-import 'routes/myroutes.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-
-// showCupertinoModalPopup(context: context, builder: builder)
+import 'package:get_storage/get_storage.dart';
+import 'package:organico/routes/myroutes.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 8080);
-  await FirebaseStorage.instance.useStorageEmulator('localhost', 8080);
+  await GetStorage.init();
   runApp(const MyApp());
 }
+// showCupertinoModalPopup(context: context, builder: builder)
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -23,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Organico',
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: MyRoutes.instanse.onGenerate,
+      onGenerateRoute: OrgRoutes.instanse.onGenerate,
       initialRoute: '/profile',
     );
   }

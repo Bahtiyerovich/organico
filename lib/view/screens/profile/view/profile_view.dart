@@ -105,19 +105,14 @@ class ProfileView extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const MyOrdersPage()),
+                                    builder: (context) => MyOrdersPage()),
                               );
                             }),
                         ListTileWidget(
                             icon: 'assets/icons/profile/profile_myWishlist.svg',
                             title: 'My Wishlist',
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const MyWishlistPage()),
-                              );
+                              Navigator.pushNamed(context, '/my_wishlist');
                             }),
                         ListTileWidget(
                             icon: 'assets/icons/profile/profile_myAddress.svg',

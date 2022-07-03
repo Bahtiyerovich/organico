@@ -6,6 +6,8 @@ class SignInCubit extends Cubit<SignInState> {
 
   String flag = 'null';
 
+  bool obscure = true;
+
   phoneCode(String v) {
     if (v == "+998") {
       flag = 'uz';
@@ -13,11 +15,10 @@ class SignInCubit extends Cubit<SignInState> {
     } else if (v == '+971') {
       flag = 'ae';
       emit(SignInComplete(flagName: flag));
-    }  else if (v == '+380') {
+    } else if (v == '+380') {
       flag = 'ua';
       emit(SignInComplete(flagName: flag));
-    } 
-    else if (v == '+90') {
+    } else if (v == '+90') {
       flag = 'tr';
       emit(SignInComplete(flagName: flag));
     } else if (v == '+86') {
@@ -29,7 +30,7 @@ class SignInCubit extends Cubit<SignInState> {
     } else if (v == '+44') {
       flag = 'gb';
       emit(SignInComplete(flagName: flag));
-    }  else if (v == '+33') {
+    } else if (v == '+33') {
       flag = 'fr';
       emit(SignInComplete(flagName: flag));
     } else if (v == '+7') {
@@ -38,9 +39,16 @@ class SignInCubit extends Cubit<SignInState> {
     } else if (v == '+1') {
       flag = 'us';
       emit(SignInComplete(flagName: flag));
-    }  else {
+    } else {
       flag = 'null';
       emit(SignInComplete(flagName: flag));
     }
   }
+
+  securityPass(bool v) {
+    obscure = v;
+    emit(SignInComplete(obscureText: obscure));
+  }
+
+  
 }

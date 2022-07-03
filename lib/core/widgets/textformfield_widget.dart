@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:organico/core/components/myflag_comp.dart';
+import 'package:organico/core/components/flags_comp.dart';
 import 'package:organico/core/constants/colors_const.dart';
 import 'package:organico/view/auth/sign_in/cubit/signin_cubit.dart';
 
